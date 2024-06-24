@@ -2,7 +2,7 @@
     session_start();
     if(isset($_SESSION['sessionEmail']))
     {
-        header("Location:home.php");
+        header("Location:index.php");
         
     }
     else{
@@ -73,7 +73,7 @@
                 // setcookie("cookieEmail","", time());
                 // setcookie("cookiePass","", time());
             }
-            header("Location:home.php");
+            header("Location:index.php");
         }
         else{
             echo "Email or pass is incorrect";
@@ -95,7 +95,7 @@
             setcookie("cookiePass",$row['UserPass'], time() + 120);
             
 
-            header("Location:home.php");
+            header("Location:index.php");
         }
         // else{
         //     echo "Email or pass is incorrect";

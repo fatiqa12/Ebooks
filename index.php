@@ -1,745 +1,637 @@
+<?php
+session_start();
+if (isset($_SESSION['sessionEmail'])) {
+} else {
+	header("Location:login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+	<title>E Books</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="author" content="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
 
-    <!-- Title Page-->
-    <title>Dashboard</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
+	<link rel="stylesheet" type="text/css" href="websitecss/normalize.css">
+	<link rel="stylesheet" type="text/css" href="websiteicomoon/icomoon.css">
+	<link rel="stylesheet" type="text/css" href="websitecss/vendor.css">
+	<link rel="stylesheet" type="text/css" href="website.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
 
 </head>
 
-<body class="animsition">
-    <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        <header class="header-mobile d-block d-lg-none">
-            <div class="header-mobile__bar">
-                <div class="container-fluid">
-                    <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
-                        </a>
-                        <button class="hamburger hamburger--slider" type="button">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <nav class="navbar-mobile">
-                <div class="container-fluid">
-                    <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms</a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar</a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps</a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-desktop"></i>UI Elements</a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="button.html">Button</a>
-                                </li>
-                                <li>
-                                    <a href="badge.html">Badges</a>
-                                </li>
-                                <li>
-                                    <a href="tab.html">Tabs</a>
-                                </li>
-                                <li>
-                                    <a href="card.html">Cards</a>
-                                </li>
-                                <li>
-                                    <a href="alert.html">Alerts</a>
-                                </li>
-                                <li>
-                                    <a href="progress-bar.html">Progress Bars</a>
-                                </li>
-                                <li>
-                                    <a href="modal.html">Modals</a>
-                                </li>
-                                <li>
-                                    <a href="switch.html">Switchs</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grids</a>
-                                </li>
-                                <li>
-                                    <a href="fontawesome.html">Fontawesome Icon</a>
-                                </li>
-                                <li>
-                                    <a href="typo.html">Typography</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- END HEADER MOBILE-->
+<body data-bs-spy="scroll" data-bs-target="#header" tabindex="0">
 
-        <!-- MENU SIDEBAR-->
-        <?php
-            include("sidebar.php");
-        ?>
-        <!-- END MENU SIDEBAR-->
+	<div id="header-wrap">
 
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <?php
-                include("header.php");
-            ?>
-            <!-- HEADER DESKTOP-->
+		<div class="top-content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="social-links">
+							<ul>
+								<li>
+									<a href="#"><i class="icon icon-facebook"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-twitter"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-youtube-play"></i></a>
+								</li>
+								<li>
+									<a href="#"><i class="icon icon-behance-square"></i></a>
+								</li>
+							</ul>
+						</div><!--social-links-->
+					</div>
+					<div class="col-md-4">
+						<div class="right-element">
+							<div class="row mx-0 px-0">
+								<div class="col-md-6">
+									<li class="nav-item dropdown" style="list-style-type: none;">
+										<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											<span> <img src="<?php echo $_SESSION['sessionImg'] ?>" height="25px" width="25px"  alt="User Image" /></span>
+										</a>
+										<ul style="width: 300px;" class="dropdown-menu">
+											<li>
+												<div class="row">
+													<div class="col-md-4">
+														<img src="<?php echo $_SESSION['sessionImg'] ?>" height="100px" width="100px" alt="User Image" />
+													</div>
+													<div class="col-md-8">
+														<div class="card-body">
+															<h5 class="card-title"><a style="text-decoration: none;" class="js-acc-btn" href="#"><?php echo $_SESSION['sessionName'] ?></a>
+															</h5>
+															<span class="email"><?php echo $_SESSION['sessionEmail'] ?></span>
+														</div>
+													</div>
+												</div>
+												<a style="width: 300px;" href="registers.php?EditedId=<?php echo $row['UserId'] ?>" class="btn btn-success">Edit</a><br>
+												<a style="width: 300px;" href="registers.php?DeletedId=<?php echo $row['UserId'] ?>" class="btn btn-danger">Delete</a>
+												<div class="account-dropdown__footer">
+													<form action="login.php" method="POST">
+														<input type="hidden" name="logout" value="logout">
+														<a class="btn btn-danger btn-block" style="width: 300px; margin-top: 35px; height: 18%;" href="logout.php">Logout</a>
+														<!-- <button style="width: 300px; margin-top: 35px; height: 18%;" >
+															<i class="zmdi zmdi-power"></i> 
+														</button> -->
+													</form>
+												</div>
+											</li>
+										</ul>
+									</li>
+								</div>
+								<div class="col-md-6">
+									<?php
+									$count = 0;
+									if (isset($_SESSION['cart'])) {
+										$count = count($_SESSION['cart']);
+									}
+									?>
+									<a href="./mycart.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>My Cart (<?php echo $count; ?>)</span></a>
 
-            <!-- MAIN CONTENT-->
-            <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c1">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart1"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>items solid</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart2"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c3">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-calendar-note"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>this week</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>total earnings</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart4"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="au-card recent-report">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2">recent reports</h3>
-                                        <div class="chart-info">
-                                            <div class="chart-info__left">
-                                                <div class="chart-note">
-                                                    <span class="dot dot--blue"></span>
-                                                    <span>products</span>
-                                                </div>
-                                                <div class="chart-note mr-0">
-                                                    <span class="dot dot--green"></span>
-                                                    <span>services</span>
-                                                </div>
-                                            </div>
-                                            <div class="chart-info__right">
-                                                <div class="chart-statis">
-                                                    <span class="index incre">
-                                                        <i class="zmdi zmdi-long-arrow-up"></i>25%</span>
-                                                    <span class="label">products</span>
-                                                </div>
-                                                <div class="chart-statis mr-0">
-                                                    <span class="index decre">
-                                                        <i class="zmdi zmdi-long-arrow-down"></i>10%</span>
-                                                    <span class="label">services</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="recent-report__chart">
-                                            <canvas id="recent-rep-chart"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="au-card chart-percent-card">
-                                    <div class="au-card-inner">
-                                        <h3 class="title-2 tm-b-5">char by %</h3>
-                                        <div class="row no-gutters">
-                                            <div class="col-xl-6">
-                                                <div class="chart-note-wrap">
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--blue"></span>
-                                                        <span>products</span>
-                                                    </div>
-                                                    <div class="chart-note mr-0 d-block">
-                                                        <span class="dot dot--red"></span>
-                                                        <span>services</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="percent-chart">
-                                                    <canvas id="percent-chart"></canvas>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Earnings By Items</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>date</th>
-                                                <th>order ID</th>
-                                                <th>name</th>
-                                                <th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$999.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$756.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>100396</td>
-                                                <td>Game Console Controller</td>
-                                                <td class="text-right">$22.00</td>
-                                                <td class="text-right">2</td>
-                                                <td class="text-right">$44.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-26 23:06</td>
-                                                <td>100395</td>
-                                                <td>iPhone X 256Gb Black</td>
-                                                <td class="text-right">$1199.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$1199.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100392</td>
-                                                <td>Smartwatch 4.0 LTE Wifi</td>
-                                                <td class="text-right">$199.00</td>
-                                                <td class="text-right">6</td>
-                                                <td class="text-right">$1494.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>100391</td>
-                                                <td>Camera C430W 4k</td>
-                                                <td class="text-right">$699.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$699.00</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2018-09-22 00:43</td>
-                                                <td>100393</td>
-                                                <td>USB 3.0 Cable</td>
-                                                <td class="text-right">$10.00</td>
-                                                <td class="text-right">3</td>
-                                                <td class="text-right">$30.00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <h2 class="title-1 m-b-25">Top countries</h2>
-                                <div class="au-card au-card--bg-blue au-card-top-countries m-b-40">
-                                    <div class="au-card-inner">
-                                        <div class="table-responsive">
-                                            <table class="table table-top-countries">
-                                                <tbody>
-                                                    <tr>
-                                                        <td>United States</td>
-                                                        <td class="text-right">$119,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Australia</td>
-                                                        <td class="text-right">$70,261.65</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>United Kingdom</td>
-                                                        <td class="text-right">$46,399.22</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Turkey</td>
-                                                        <td class="text-right">$35,364.90</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Germany</td>
-                                                        <td class="text-right">$20,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>France</td>
-                                                        <td class="text-right">$10,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Australia</td>
-                                                        <td class="text-right">$5,366.96</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Italy</td>
-                                                        <td class="text-right">$1639.32</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                    <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
-                                        <div class="bg-overlay bg-overlay--blue"></div>
-                                        <h3>
-                                            <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
-                                        <button class="au-btn-plus">
-                                            <i class="zmdi zmdi-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="au-task js-list-load">
-                                        <div class="au-task__title">
-                                            <p>Tasks for John Doe</p>
-                                        </div>
-                                        <div class="au-task-list js-scrollbar3">
-                                            <div class="au-task__item au-task__item--danger">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">10:00 AM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--warning">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Create new task for Dashboard</a>
-                                                    </h5>
-                                                    <span class="time">11:00 AM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--primary">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">02:00 PM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--success">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Create new task for Dashboard</a>
-                                                    </h5>
-                                                    <span class="time">03:30 PM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--danger js-load-item">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">10:00 AM</span>
-                                                </div>
-                                            </div>
-                                            <div class="au-task__item au-task__item--warning js-load-item">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Create new task for Dashboard</a>
-                                                    </h5>
-                                                    <span class="time">11:00 AM</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="au-task__footer">
-                                            <button class="au-btn au-btn-load js-load-btn">load more</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                    <div class="au-card-title" style="background-image:url('images/bg-title-02.jpg');">
-                                        <div class="bg-overlay bg-overlay--blue"></div>
-                                        <h3>
-                                            <i class="zmdi zmdi-comment-text"></i>New Messages</h3>
-                                        <button class="au-btn-plus">
-                                            <i class="zmdi zmdi-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="au-inbox-wrap js-inbox-wrap">
-                                        <div class="au-message js-list-load">
-                                            <div class="au-message__noti">
-                                                <p>You Have
-                                                    <span>2</span>
+									<div class="action-menu">
 
-                                                    new messages
-                                                </p>
-                                            </div>
-                                            <div class="au-message-list">
-                                                <div class="au-message__item unread">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">John Smith</h5>
-                                                                <p>Have sent a photo</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>12 Min ago</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="au-message__item unread">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap online">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-03.jpg" alt="Nicholas Martinez">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">Nicholas Martinez</h5>
-                                                                <p>You are now connected on message</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>11:00 PM</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="au-message__item">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap online">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">Michelle Sims</h5>
-                                                                <p>Lorem ipsum dolor sit amet</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>Yesterday</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="au-message__item">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">Michelle Sims</h5>
-                                                                <p>Purus feugiat finibus</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>Sunday</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="au-message__item js-load-item">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap online">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">Michelle Sims</h5>
-                                                                <p>Lorem ipsum dolor sit amet</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>Yesterday</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="au-message__item js-load-item">
-                                                    <div class="au-message__item-inner">
-                                                        <div class="au-message__item-text">
-                                                            <div class="avatar-wrap">
-                                                                <div class="avatar">
-                                                                    <img src="images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                                                </div>
-                                                            </div>
-                                                            <div class="text">
-                                                                <h5 class="name">Michelle Sims</h5>
-                                                                <p>Purus feugiat finibus</p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="au-message__item-time">
-                                                            <span>Sunday</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="au-message__footer">
-                                                <button class="au-btn au-btn-load js-load-btn">load more</button>
-                                            </div>
-                                        </div>
-                                        <div class="au-chat">
-                                            <div class="au-chat__title">
-                                                <div class="au-chat-info">
-                                                    <div class="avatar-wrap online">
-                                                        <div class="avatar avatar--small">
-                                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                                        </div>
-                                                    </div>
-                                                    <span class="nick">
-                                                        <a href="#">John Smith</a>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div class="au-chat__content">
-                                                <div class="recei-mess-wrap">
-                                                    <span class="mess-time">12 Min ago</span>
-                                                    <div class="recei-mess__inner">
-                                                        <div class="avatar avatar--tiny">
-                                                            <img src="images/icon/avatar-02.jpg" alt="John Smith">
-                                                        </div>
-                                                        <div class="recei-mess-list">
-                                                            <div class="recei-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                                            <div class="recei-mess">Donec tempor, sapien ac viverra</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="send-mess-wrap">
-                                                    <span class="mess-time">30 Sec ago</span>
-                                                    <div class="send-mess__inner">
-                                                        <div class="send-mess-list">
-                                                            <div class="send-mess">Lorem ipsum dolor sit amet, consectetur adipiscing elit non iaculis</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="au-chat-textfield">
-                                                <form class="au-form-icon">
-                                                    <input class="au-input au-input--full au-input--h65" type="text" placeholder="Type a message">
-                                                    <button class="au-input-icon">
-                                                        <i class="zmdi zmdi-camera"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
-        </div>
+										<div class="search-bar">
+											<a href="#" class="search-button search-toggle" data-selector="#header-wrap">
+												<i class="icon icon-search"></i>
+											</a>
+											<form role="search" method="get" class="search-box">
+												<input class="search-field text search-input" placeholder="Search" type="search">
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
 
-    </div>
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js">
-    </script>
 
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
+
+						</div><!--top-right-->
+					</div>
+
+				</div>
+			</div>
+		</div><!--top-content-->
+
+		<header id="header">
+			<div class="container-fluid">
+				<div class="row">
+
+					<div class="col-md-2">
+						<div class="main-logo">
+							<a href="./index.php"><img src="./websiteimages/mainlogo.png" alt="logo"></a>
+						</div>
+
+					</div>
+
+					<div class="col-md-10">
+
+						<nav id="navbar">
+							<div class="main-menu stellarnav">
+								<ul class="menu-list">
+									<li class="menu-item active"><a href="#home">Home</a></li>
+									<li class="menu-item has-sub">
+
+										<ul>
+											<li class="active"><a href="index.html">Home</a></li>
+											<li><a href="about.html">About <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="styles.html">Styles <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="blog.html">Blog <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="single-post.html">Post Single <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="shop.html">Our Store <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="single-product.html">Product Single <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="contact.html">Contact <span class="badge bg-dark">PRO</span></a></li>
+											<li><a href="thank-you.html">Thank You <span class="badge bg-dark">PRO</span></a></li>
+										</ul>
+
+									</li>
+									<li class="menu-item"><a href="#featured-books" class="nav-link">Novels</a></li>
+									<li class="menu-item"><a href="#popular-books" class="nav-link">Comics</a></li>
+									<li class="menu-item"><a href="#special-offer" class="nav-link">Stories</a></li>
+									<li class="menu-item"><a href="#latest-blog" class="nav-link">General Knowledge</a></li>
+								</ul>
+
+								<div class="hamburger">
+									<span class="bar"></span>
+									<span class="bar"></span>
+									<span class="bar"></span>
+								</div>
+
+							</div>
+						</nav>
+
+					</div>
+
+				</div>
+			</div>
+		</header>
+
+	</div><!--header-wrap-->
+
+	<section id="billboard">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+
+
+					<div class="main-slider pattern-overlay">
+						<div class="slider-item">
+							<div class="banner-content">
+								<h2 class="banner-title">The Adventures Of Tom Sawyer</h2>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu feugiat amet, libero
+									ipsum enim pharetra hac. Urna commodo, lacus ut magna velit eleifend. Amet, quis
+									urna, a eu.</p>
+
+							</div><!--banner-content-->
+							<img src="websiteimages/adventures-of-tom-sawyer-english-learning-book-stories.png" alt="banner" class="banner-image">
+						</div><!--slider-->
+
+
+
+					</div>
+				</div>
+			</div>
+
+	</section>
+
+	<section id="client-holder" data-aos="fade-up">
+		<div class="container">
+			<div class="row">
+				<div class="inner-content">
+					<div class="logo-wrap">
+						<div class="grid">
+							<a href="#"><img src="websiteimages/client-image1.png" alt="client"></a>
+							<a href="#"><img src="websiteimages/client-image2.png" alt="client"></a>
+							<a href="#"><img src="websiteimages/client-image3.png" alt="client"></a>
+							<a href="#"><img src="websiteimages/client-image4.png" alt="client"></a>
+							<a href="#"><img src="websiteimages/client-image5.png" alt="client"></a>
+						</div>
+					</div><!--image-holder-->
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="" class="py-5 my-5">
+		<!-- Novels work here -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="section-header align-center">
+						<h2 class="section-title">Novels</h2>
+					</div>
+					<div class="product-list">
+						<div class="row">
+
+							<?php
+							include("connection.php");
+							$selectQuery = "SELECT * FROM books WHERE BookCategory = 'Novel'";
+							$getData = mysqli_query($conn, $selectQuery);
+							while ($row = mysqli_fetch_array($getData)) {
+							?>
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="<?php echo $row['BookImg'] ?>" alt="Books" class="product-item">
+											<button type="submit" name="Add_To_Cart" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+											<input type="hidden" name="Item_Name" value="Novel">
+											<input type="hidden" name="Price" value="450">
+										</figure>
+										<figcaption>
+											<h3>
+												<?php echo $row['BookName'] ?>
+											</h3>
+											<span>
+												<?php echo $row['AuthorName'] ?>
+											</span>
+											<div class="item-price">
+												PKR : RS<?php echo $row['BookPrice'] ?>
+											</div>
+										</figcaption>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+
+						</div><!--ft-books-slider-->
+					</div><!--grid-->
+
+
+				</div><!--inner-content-->
+			</div>
+		</div>
+		<!-- Novels work here -->
+
+		<!-- comics work here -->
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="section-header align-center">
+						<h2 class="section-title">Comics</h2>
+					</div>
+					<div class="product-list">
+						<div class="row">
+
+							<?php
+							include("connection.php");
+							$selectQuery = "SELECT * FROM books WHERE BookCategory = 'Comic'";
+							$getData = mysqli_query($conn, $selectQuery);
+							while ($row = mysqli_fetch_array($getData)) {
+							?>
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="<?php echo $row['BookImg'] ?>" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>
+												<?php echo $row['BookName'] ?>
+											</h3>
+											<span>
+												<?php echo $row['AuthorName'] ?>
+											</span>
+											<div class="item-price">
+												<?php echo $row['BookPrice'] ?>
+											</div>
+										</figcaption>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+
+						</div><!--ft-books-slider-->
+					</div><!--grid-->
+
+
+				</div><!--inner-content-->
+			</div>
+		</div>
+		<!-- comics work here -->
+
+		<!-- Stories work here -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="section-header align-center">
+						<h2 class="section-title">Stories</h2>
+					</div>
+					<div class="product-list">
+						<div class="row">
+
+							<?php
+							include("connection.php");
+							$selectQuery = "SELECT * FROM books WHERE BookCategory = 'Story'";
+							$getData = mysqli_query($conn, $selectQuery);
+							while ($row = mysqli_fetch_array($getData)) {
+							?>
+								<div class="col-md-3">
+									<div class="product-item">
+										<figure class="product-style">
+											<img src="<?php echo $row['BookImg'] ?>" alt="Books" class="product-item">
+											<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+												Cart</button>
+										</figure>
+										<figcaption>
+											<h3>
+												<?php echo $row['BookName'] ?>
+											</h3>
+											<span>
+												<?php echo $row['AuthorName'] ?>
+											</span>
+											<div class="item-price">
+												<?php echo $row['BookPrice'] ?>
+											</div>
+										</figcaption>
+									</div>
+								</div>
+							<?php
+							}
+							?>
+
+						</div><!--ft-books-slider-->
+					</div><!--grid-->
+
+
+				</div><!--inner-content-->
+			</div>
+		</div>
+		<!-- Stories work here -->
+
+	</section>
+
+	<section id="best-selling" class="leaf-pattern-overlay">
+		<div class="corner-pattern-overlay"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+
+				<div class="col-md-8">
+
+					<div class="row">
+
+						<div class="col-md-6">
+							<figure class="products-thumb">
+								<img src="websiteimages/single-image.jpg" alt="book" class="single-image">
+							</figure>
+						</div>
+
+						<div class="col-md-6">
+							<div class="product-entry">
+								<h2 class="section-title divider">Best Selling Book</h2>
+
+								<div class="products-content">
+									<div class="author-name">By Timbur Hood</div>
+									<h3 class="item-title">Birds gonna be happy</h3>
+									<p>Some believe the lyrics are partly inspired by birds that Marley was fond of that used to fly and sit next to his home..</p>
+									<div class="item-price">$ 45.00</div>
+									<div class="btn-wrap">
+										<a href="#" class="btn-accent-arrow">shop it now <i class="icon icon-ns-arrow-right"></i></a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<!-- / row -->
+
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+
+	<!-- Stories work here -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="section-header align-center">
+					<h2 class="section-title">General Knowledge</h2>
+				</div>
+				<div class="product-list">
+					<div class="row">
+
+						<?php
+						include("connection.php");
+						$selectQuery = "SELECT * FROM books WHERE BookCategory = 'General knowledge'";
+						$getData = mysqli_query($conn, $selectQuery);
+						while ($row = mysqli_fetch_array($getData)) {
+						?>
+							<div class="col-md-3">
+								<div class="product-item">
+									<figure class="product-style">
+										<img src="<?php echo $row['BookImg'] ?>" alt="Books" class="product-item">
+										<button type="button" class="add-to-cart" data-product-tile="add-to-cart">Add to
+											Cart</button>
+									</figure>
+									<figcaption>
+										<h3>
+											<?php echo $row['BookName'] ?>
+										</h3>
+										<span>
+											<?php echo $row['AuthorName'] ?>
+										</span>
+										<div class="item-price">
+											<?php echo $row['BookPrice'] ?>
+										</div>
+									</figcaption>
+								</div>
+							</div>
+						<?php
+						}
+						?>
+
+					</div><!--ft-books-slider-->
+				</div><!--grid-->
+
+
+			</div><!--inner-content-->
+		</div>
+	</div>
+	<!-- Stories work here -->
+
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-4">
+
+					<div class="footer-item">
+						<div class="company-brand">
+							<img src="./websiteimages/mainlogo.png" alt="logo" class="footer-logo">
+							<p>An ebook (short for electronic book), also spelled as e-book or eBook, is a book publication made available in electronic form, consisting of text, images, or both, readable on the flat-panel display of computers or other electronic devices..</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-2">
+
+					<div class="footer-menu">
+						<h5>About Us</h5>
+						<ul class="menu-list">
+							<li class="menu-item">
+								<a href="#">vision</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">articles </a>
+							</li>
+							<li class="menu-item">
+								<a href="#">careers</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">service terms</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">donate</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-2">
+
+					<div class="footer-menu">
+						<h5>Discover</h5>
+						<ul class="menu-list">
+							<li class="menu-item">
+								<a href="#">Home</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Books</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Authors</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Subjects</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Advanced Search</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-2">
+
+					<div class="footer-menu">
+						<h5>My account</h5>
+						<ul class="menu-list">
+							<li class="menu-item">
+								<a href="#">Sign In</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">View Cart</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">My Wishtlist</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Track My Order</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+				<div class="col-md-2">
+
+					<div class="footer-menu">
+						<h5>Help</h5>
+						<ul class="menu-list">
+							<li class="menu-item">
+								<a href="#">Help center</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Report a problem</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Suggesting edits</a>
+							</li>
+							<li class="menu-item">
+								<a href="#">Contact us</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+
+			</div>
+			<!-- / row -->
+
+		</div>
+	</footer>
+
+	<div id="footer-bottom">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<div class="copyright">
+						<div class="row">
+
+							<div class="col-md-6">
+								<p>© 2022 All rights reserved. Free HTML Template by <a href="https://www.templatesjungle.com/" target="_blank">TemplatesJungle</a></p>
+							</div>
+
+							<div class="col-md-6">
+								<div class="social-links align-right">
+									<ul>
+										<li>
+											<a href="#"><i class="icon icon-facebook"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-twitter"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-youtube-play"></i></a>
+										</li>
+										<li>
+											<a href="#"><i class="icon icon-behance-square"></i></a>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+						</div>
+					</div><!--grid-->
+
+				</div><!--footer-bottom-content-->
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script src="websitejs/plugins.js"></script>
+	<script src="websitejs/script.js"></script>
+	<script src="js/main.js"></script>
 
 </body>
 
 </html>
-<!-- end document-->
