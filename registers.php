@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Register</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+<?php
+    ////////////////insert work////////////////
+    include("connection.php");
+
+    if (isset($_POST["submit"])) {
+        $User_name = $_POST["UserName"];
+        $User_phone = $_POST["UserPhone"];
+        $User_email = $_POST["UserEmail"];
+        $User_pass = $_POST["UserPassword"];
+        $User_gender = $_POST["gender"];
+
+        $imgPath = "uploads/imgs/" . uniqid() . ".png";
+
+        if (move_uploaded_file($_FILES["imgFile"]["tmp_name"], $imgPath)) {
+            echo "Image uploaded successfully";
+        } else {
+            echo "Image not uploaded successfully";
+        }
+
+
+        $insertQuery = "INSERT INTO signup(UserName,UserPhone,UserEmail,UserPass,UserGender,UserImg) VALUES('$User_name','$User_phone','$User_email','$User_pass','$User_gender','$imgPath')";
+
+        $isInsert = mysqli_query($conn, $insertQuery);
+
+        if ($isInsert) {
+            echo "<script>
+                            alert('SignUp Successfully');
+                            window.location.href = 'home.php';
+                            </script>";
+        } else {
+            echo "<script>alert('Something went wrong here');</script>";
+        }
+    }
+    ////////////////insert work////////////////
+    ////////////////Delete work////////////////
+    if (isset($_GET['DeletedId'])) {
+        $delId = $_GET['DeletedId'];
+        $delQuery = "DELETE FROM signup WHERE UserId = $delId";
+        $isDelete = mysqli_query($conn, $delQuery);
+        if ($isDelete) {
+            echo "<script>alert('Record Deleted successfully');
+                          window.location.href = 'home.php';
+                        </script>";
+        } else {
+            echo "<script>alert('Something went wrong here');</script>";
+        }
+    }
+    ////////////////Delete work////////////////
+    ////////////////Edit work////////////////
+    if (isset($_GET['EditedId'])) {
+        $editId = $_GET['EditedId'];
+        $editQuery = "SELECT * FROM signup WHERE UserId = $editId";
+        $res = mysqli_query($conn, $editQuery);
+        $row = mysqli_fetch_array($res);
+    }
+    ////////////////Edit work////////////////
+    ////////////////Update work////////////////
+    if (isset($_POST['update'])) {
+        $uid = $_POST['uId'];
+        $u_name = $_POST["UserName"];
+        $u_phone = $_POST["UserPhone"];
+        $u_email = $_POST["UserEmail"];
+        $u_pass = $_POST["UserPassword"];
+        $u_gender = $_POST["gender"];
+
+        $u_imgPath = "uploads/imgs/" . uniqid() . ".png";
+
+        if (move_uploaded_file($_FILES["imgFile"]["tmp_name"], $u_imgPath)) {
+            echo "Image uploaded successfully";
+        } else {
+            echo "Image not uploaded successfully";
+        }
+
+        $updateQuery = "UPDATE signup SET UserName = '$u_name',UserPhone = '$u_phone',UserEmail = '$u_email',UserPass = '$u_pass',UserGender = '$u_gender',UserImg = '$u_imgPath' WHERE UserId = '$uid' ";
+
+        $isUpdate = mysqli_query($conn, $updateQuery);
+        if ($isUpdate) {
+            echo "<script>
+                            alert('Data Updated Successfully');
+                            window.location.href = 'home.php';
+                            </script>";
+        } else {
+            echo "<script>alert('Something went wrong here');</script>";
+        }
+    }
+    ////////////////Update work////////////////
+
+    ?>
+
+
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong>SignUp</strong>
+                            </div>
+                            <div class="card-body card-block">
+                                <form action="registers.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                                    <input type="hidden" name="uId" value="<?php echo @$row['UserId'] ?>">
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">User Name</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="text-input" name="UserName" placeholder="Enter your name" value="<?php echo @$row['UserName'] ?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">User Phone</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="text-input" name="UserPhone" placeholder="Enter your phone" value="<?php echo @$row['UserPhone'] ?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">User Email</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="text-input" name="UserEmail" placeholder="Enter your email" value="<?php echo @$row['UserEmail'] ?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">User Password</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="text" id="text-input" name="UserPassword" placeholder="Enter your password" value="<?php echo @$row['UserPass'] ?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label class=" form-control-label">Gender</label>
+                                        </div>
+                                        <div class="col col-md-9">
+                                            <div class="form-check-inline form-check">
+                                                <label for="inline-radio1" class="form-check-label ">
+                                                    <input type="radio" id="inline-radio1" name="gender" value="Male" class="form-check-input" <?php if (@$row['UserGender'] == 'Male') echo 'checked' ?>>Male
+                                                </label>
+                                                <label for="inline-radio2" class="form-check-label ">
+                                                    <input type="radio" id="inline-radio2" name="gender" value="Female" class="form-check-input" <?php if (@$row['UserGender'] == 'Female') echo 'checked' ?>>Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- image work -->
+                                    <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="text-input" class=" form-control-label">Image</label>
+                                        </div>
+                                        <div class="col-12 col-md-9">
+                                            <input type="file" name="imgFile" id="imgFile" class="form-control">
+                                            <br>
+                                            <img src="" id="imgId" width="100" alt="">
+                                        </div>
+                                    </div>
+                                    <!-- image work -->
+                            </div>
+                            <div class="card-footer">
+                                <?php
+                                if (isset($_GET['EditedId'])) {
+                                ?>
+                                    <button type="submit" name="update" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Update Data
+                                    </button>
+                                <?php
+                                } else {
+                                ?>
+                                    <button type="submit" name="submit" class="btn btn-primary btn-sm">
+                                        <i class="fa fa-dot-circle-o"></i> Submit Data
+                                    </button>
+                                <?php
+                                }
+
+                                ?>
+
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+    <script type="text/javascript">
+
+document.getElementById('imgFile').onchange = function (evt) {
+    var tgt = evt.target || window.event.srcElement,
+        files = tgt.files;
+
+    // FileReader support
+    if (FileReader && files && files.length) {
+        var fr = new FileReader();
+        fr.onload = function () {
+            document.getElementById('imgId').src = fr.result;
+        }
+        fr.readAsDataURL(files[0]);
+    }
+
+    // Not supported
+    else {
+        // fallback -- perhaps submit the input to an iframe and temporarily store
+        // them on the server until the user's session ends.
+    }
+}
+
+</script>
+
+</body>
+
+</html>
+<!-- end document-->
