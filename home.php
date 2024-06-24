@@ -77,8 +77,8 @@ if (isset($_SESSION['sessionEmail'])) {
 														</div>
 													</div>
 												</div>
-												<a style="width: 300px;" href="registers.php?EditedId=<?php echo $row['UserId'] ?>" class="btn btn-success">Edit</a><br>
-												<a style="width: 300px;" href="registers.php?DeletedId=<?php echo $row['UserId'] ?>" class="btn btn-danger">Delete</a>
+												<input style="width: 300px;" href="registers.php?EditedId=<?php echo $row['UserId'] ?>" class="btn btn-success" value = "Edit">
+												<input style="width: 300px;" href="registers.php?DeletedId=<?php echo $row['UserId'] ?>" class="btn btn-danger" value = "Delete">
 												<div class="account-dropdown__footer">
 													<form action="login.php" method="POST">
 														<input type="hidden" name="logout" value="logout">
