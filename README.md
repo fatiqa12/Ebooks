@@ -1,6 +1,10 @@
 # Database
 
+
+## Attempt 1
 Create database ebook;
+
+## Attempt 2
 
 create table signup (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
@@ -46,5 +50,7 @@ CREATE TABLE aorders(
     orderstatus VARCHAR(225),
     FOREIGN KEY (customerid) REFERENCES customers(CustomerId)
 );
+
+## Attempt 3
 
 INSERT INTO signup VALUES (NULL, "Subhan", 300, "subhan@gmail.com", "subhan", "male", NULL);
