@@ -11,3 +11,5 @@ create table signup (
     UserGender VARCHAR(40),
     UserImg VARCHAR(50)
 );
+
+INSERT INTO signup VALUES (NULL, "Subhan", 300, "subhan@gmail.com", "subhan", "male", NULL);
