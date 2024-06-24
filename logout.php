@@ -7,5 +7,5 @@
     // unset($_COOKIE['cookiePass']);
     session_destroy();
 
-    header("location: login.php");
+    header("index.php");
 ?>
