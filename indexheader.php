@@ -1,5 +1,5 @@
 
-<div class="col-md-4">
+<div class="col-md-3">
     <div class="right-element">
         <div class="row mx-0 px-0">
             <div class="col-md-6">

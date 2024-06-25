@@ -56,8 +56,8 @@ if (isset($_SESSION['sessionEmail'])) {
 						<!--social-links-->
 					</div>
 
-					<div class="col-md-6">
-						
+					<div class="col-md-7">
+
 					</div>
 					<?php
 					if (isset($_SESSION['sessionEmail'])) {
