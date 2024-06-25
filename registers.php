@@ -56,7 +56,7 @@
         }
 
 
-        $insertQuery = "INSERT INTO signup(UserName,UserPhone,UserEmail,UserPass,UserGender,UserImg) VALUES('$User_name','$User_phone','$User_email','$User_pass','$User_gender','$imgPath')";
+        $insertQuery = "INSERT INTO signup(UserName,UserPhone,UserEmail,UserPass,UserGender,UserImg,account_type) VALUES('$User_name','$User_phone','$User_email','$User_pass','$User_gender','$imgPath', 'customer')";
 
         $isInsert = mysqli_query($conn, $insertQuery);
 

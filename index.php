@@ -118,7 +118,6 @@ if (isset($_SESSION['sessionEmail'])) {
 									<li class="menu-item"><a href="#popular-books" class="nav-link">Comics</a></li>
 									<li class="menu-item"><a href="#special-offer" class="nav-link">Stories</a></li>
 									<li class="menu-item"><a href="#latest-blog" class="nav-link">General Knowledge</a></li>
-									<li><a style='width: 120px; background-color: lightgreen; margin-left: 5px;font-size:10px;font-weight:bold;text-align:center' href='./home.php' class='btn btn-danger'>Admin Login</a></li>
 									<?php
 									if (isset($_SESSION['sessionEmail'])) {
 											

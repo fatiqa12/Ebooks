@@ -56,47 +56,64 @@
         $uemail = $_POST['email'];   
         $upass = $_POST['pass'];
         
-        $loginQuery = "SELECT * FROM signup WHERE UserEmail = '$uemail' AND UserPass = '$upass'";
-        $res = mysqli_query($conn,$loginQuery);
-        $row = mysqli_fetch_array($res);
-        if($row)
-        {
+        @$loginQueryCustomer = "SELECT * FROM signup WHERE UserEmail = '$uemail' AND UserPass = '$upass' AND account_type = 'customer'";
+        @$loginQueryAdmin = "SELECT * FROM signup WHERE UserEmail = '$uemail' AND UserPass = '$upass' AND account_type = 'admin'";
+        @$resCustomer = mysqli_query($conn,$loginQueryCustomer);
+        @$resAdmin = mysqli_query($conn,$loginQueryAdmin);
+        if(mysqli_num_rows($resCustomer) > 0){
+                $row = mysqli_fetch_array($resCustomer);
+                $_SESSION['sessionEmail'] = $uemail;
+                $_SESSION['sessionName'] = $row['UserName'];
+                $_SESSION['sessionImg'] = $row['UserImg'];
+                header("Location:index.php");
+        }
+        elseif(mysqli_num_rows($resAdmin) > 0){
+            $row = mysqli_fetch_array($resAdmin);
             $_SESSION['sessionEmail'] = $uemail;
             $_SESSION['sessionName'] = $row['UserName'];
             $_SESSION['sessionImg'] = $row['UserImg'];
-            if(isset($_POST['remember']))
-            {
-                // setcookie("cookieEmail",$row['UserEmail'], time() + 120);
-                // setcookie("cookiePass",$row['UserPass'], time() + 120);
-            }
-            else{
-                // setcookie("cookieEmail","", time());
-                // setcookie("cookiePass","", time());
-            }
-            header("Location:index.php");
+            header("Location:home.php");
         }
         else{
-            echo "Email or pass is incorrect";
+            echo "Email and password are incorrect";
+
         }
     }
 
     ////////cookie work
     if(isset($_COOKIE['cookieEmail']) && isset($_COOKIE['cookiePass'])) {
-        $email = $_COOKIE['cookieEmail'];
-        $pass = $_COOKIE['cookiePass'];
+        // $email = $_COOKIE['cookieEmail'];
+        // $pass = $_COOKIE['cookiePass'];
 
-        $loginQuery = "SELECT * FROM signup WHERE UserEmail = '$email' AND UserPass = '$pass'";
-        $res = mysqli_query($conn,$loginQuery);
-        $row = mysqli_fetch_array($res);
-        if($row) {
-            $_SESSION['sessionEmail'] = $email;
-
-            setcookie("cookieEmail",$row['UserEmail'], time() + 120);
-            setcookie("cookiePass",$row['UserPass'], time() + 120);
-            
-
-            header("Location:index.php");
-        }
+        // $loginQueryCustomer = "SELECT * FROM signup WHERE UserEmail = '$email' AND UserPass = '$pass' AND account_type = 'customer'";
+        // $loginQueryAdmin = "SELECT * FROM signup WHERE UserEmail = '$email' AND UserPass = '$pass' AND account_type = 'admin'";
+        // $resCusotmer = mysqli_query($conn,$loginQueryCustomer);
+        // $resAdmin = mysqli_query($conn,$loginQueryAdmin);
+        // var_dump($resCusotmer);
+        // if(){
+        //     $row = mysqli_fetch_array($res);
+        //     if($row) {
+        //         $_SESSION['sessionEmail'] = $email;
+    
+        //         setcookie("cookieEmail",$row['UserEmail'], time() + 120);
+        //         setcookie("cookiePass",$row['UserPass'], time() + 120);
+                
+    
+        //         header("Location:index.php");
+        //     }
+        // }
+        // elseif(){
+        //     $row = mysqli_fetch_array($res);
+        //     if($row) {
+        //         $_SESSION['sessionEmail'] = $email;
+    
+        //         setcookie("cookieEmail",$row['UserEmail'], time() + 120);
+        //         setcookie("cookiePass",$row['UserPass'], time() + 120);
+                
+    
+        //         header("Location:home.php");
+        //     }
+        // }
         // else{
         //     echo "Email or pass is incorrect";
         // }

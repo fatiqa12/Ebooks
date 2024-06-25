@@ -73,4 +73,5 @@ CREATE TABLE orders(
 
 ## Attempt 3
 
-INSERT INTO signup VALUES (NULL, "Subhan", 300, "subhan@gmail.com", "subhan", "male", NULL);
+INSERT INTO signup VALUES (NULL, "Subhan", 300, "subhankhan@gmail.com", "456", "male", NULL, "admin");
+INSERT INTO signup VALUES (NULL, "Muniza", 300, "muniza@gmail.com", "123", "female", NULL, "customer");
