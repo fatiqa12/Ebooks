@@ -118,12 +118,12 @@ if (isset($_SESSION['sessionEmail'])) {
 									<li class="menu-item"><a href="#popular-books" class="nav-link">Comics</a></li>
 									<li class="menu-item"><a href="#special-offer" class="nav-link">Stories</a></li>
 									<li class="menu-item"><a href="#latest-blog" class="nav-link">General Knowledge</a></li>
+									<li><a style='width: 120px; background-color: lightgreen; margin-left: 5px;font-size:10px;font-weight:bold;text-align:center' href='./home.php' class='btn btn-danger'>Admin Login</a></li>
 									<?php
 									if (isset($_SESSION['sessionEmail'])) {
 											
 									} else {
 										echo "<li><a style='width: 75px; background-color: red;font-size:10px;font-weight:bold;color:white;' href='./login.php' class='btn btn-danger'>Login</a></li>";
-										echo "<li><a style='width: 120px; background-color: lightgreen; margin-left: 5px;font-size:10px;font-weight:bold;text-align:center' href='./home.php' class='btn btn-danger'>Admin Login</a></li>";
 									}
 									?>
 
@@ -213,6 +213,7 @@ if (isset($_SESSION['sessionEmail'])) {
 							?>
 								<div class="col-md-3">
 									<div class="product-item">
+									<form action="./manage_cart.php" method="POST">
 										<figure class="product-style">
 											<img src="<?php echo $row['BookImg'] ?>" alt="Books" class="product-item">
 											<button type="submit" name="Add_To_Cart" class="add-to-cart" data-product-tile="add-to-cart">Add to
@@ -220,6 +221,7 @@ if (isset($_SESSION['sessionEmail'])) {
 											<input type="hidden" name="Item_Name" value="Novel">
 											<input type="hidden" name="Price" value="450">
 										</figure>
+									</form>
 										<figcaption>
 											<h3>
 												<?php echo $row['BookName'] ?>
