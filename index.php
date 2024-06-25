@@ -36,7 +36,7 @@ if (isset($_SESSION['sessionEmail'])) {
 		<div class="top-content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-11">
+					<div class="col-md-1">
 						<div class="social-links">
 							<ul>
 								<li>
@@ -52,8 +52,19 @@ if (isset($_SESSION['sessionEmail'])) {
 									<a href="#"><i class="icon icon-behance-square"></i></a>
 								</li>
 							</ul>
-						</div><!--social-links-->
+						</div>
+						<!--social-links-->
 					</div>
+
+					<div class="col-md-6">
+						
+					</div>
+					<?php
+					if (isset($_SESSION['sessionEmail'])) {
+						include "indexheader.php";
+					} else {
+					}
+					?>
 					<div class="col-md-1">
 						<div class="product-item row align-items-end">
 
@@ -69,12 +80,7 @@ if (isset($_SESSION['sessionEmail'])) {
 						</div>
 					</div>
 
-					<?php
-					if (isset($_SESSION['sessionEmail'])) {
-						include "indexheader.php";
-					} else {
-					}
-					?>
+					
 
 
 
