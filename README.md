@@ -61,6 +61,16 @@ CREATE TABLE aorders(
     FOREIGN KEY (customerid) REFERENCES customers(CustomerId)
 );
 
+CREATE TABLE orders(
+	OrderID  INT PRIMARY KEY AUTO_INCREMENT,
+	customerid INT,
+	bookiD INT,
+	quantity INT,
+	orderstatus VARCHAR(225),
+	FOREIGN KEY (customerid) REFERENCES customers(CustomerId),
+	FOREIGN KEY (customerid) REFERENCES books(BookId) 
+);
+
 ## Attempt 3
 
 INSERT INTO signup VALUES (NULL, "Subhan", 300, "subhan@gmail.com", "subhan", "male", NULL);
