@@ -16,6 +16,16 @@ create table signup (
     UserImg VARCHAR(50)
 );
 
+create table customers(
+	CustomerId INT PRIMARY KEY AUTO_INCREMENT,
+	CustomerName VARCHAR(225),
+	CustomerPhone VARCHAR(225),
+	CustomerEmail VARCHAR(225),
+	CustomerPassword VARCHAR(225),
+	CustomerAddress VARCHAR(225),
+	CustomerImg VARCHAR(225)
+);
+
 create table books (
 	BookID INT PRIMARY KEY AUTO_INCREMENT,
 	BookName VARCHAR(225),
