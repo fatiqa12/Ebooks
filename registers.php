@@ -36,7 +36,7 @@
 </head>
 
 <body class="animsition">
-<?php
+    <?php
     ////////////////insert work////////////////
     include("connection.php");
 
@@ -63,7 +63,7 @@
         if ($isInsert) {
             echo "<script>
                             alert('SignUp Successfully');
-                            window.location.href = 'home.php';
+                            window.location.href = 'index.php';
                             </script>";
         } else {
             echo "<script>alert('Something went wrong here');</script>";
@@ -73,11 +73,11 @@
     ////////////////Delete work////////////////
     if (isset($_GET['DeletedId'])) {
         $delId = $_GET['DeletedId'];
-        $delQuery = "DELETE FROM signup WHERE UserId = $delId";
+        $delQuery = "DELETE FROM signup WHERE UserID = $delId";
         $isDelete = mysqli_query($conn, $delQuery);
         if ($isDelete) {
             echo "<script>alert('Record Deleted successfully');
-                          window.location.href = 'home.php';
+                          window.location.href = 'view-users.php';
                         </script>";
         } else {
             echo "<script>alert('Something went wrong here');</script>";
@@ -85,9 +85,9 @@
     }
     ////////////////Delete work////////////////
     ////////////////Edit work////////////////
-    if (isset($_GET['EditedId'])) {
+    if(isset($_GET['EditedId'])) {
         $editId = $_GET['EditedId'];
-        $editQuery = "SELECT * FROM signup WHERE UserId = $editId";
+        $editQuery = "SELECT * FROM signup WHERE UserID = $editId";
         $res = mysqli_query($conn, $editQuery);
         $row = mysqli_fetch_array($res);
     }
@@ -109,13 +109,13 @@
             echo "Image not uploaded successfully";
         }
 
-        $updateQuery = "UPDATE signup SET UserName = '$u_name',UserPhone = '$u_phone',UserEmail = '$u_email',UserPass = '$u_pass',UserGender = '$u_gender',UserImg = '$u_imgPath' WHERE UserId = '$uid' ";
+        $updateQuery = "UPDATE signup SET UserName = '$u_name',UserPhone = '$u_phone',UserEmail = '$u_email',UserPass = '$u_pass',UserGender = '$u_gender',UserImg = '$u_imgPath' WHERE UserID = '$uid' ";
 
         $isUpdate = mysqli_query($conn, $updateQuery);
         if ($isUpdate) {
             echo "<script>
                             alert('Data Updated Successfully');
-                            window.location.href = 'home.php';
+                            window.location.href = 'view-users.php';
                             </script>";
         } else {
             echo "<script>alert('Something went wrong here');</script>";
@@ -139,7 +139,7 @@
                             </div>
                             <div class="card-body card-block">
                                 <form action="registers.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                                    <input type="hidden" name="uId" value="<?php echo @$row['UserId'] ?>">
+                                    <input type="hidden" name="uId" value="<?php echo @$row['UserID'] ?>">
                                     <div class="row form-group">
                                         <div class="col col-md-3">
                                             <label for="text-input" class=" form-control-label">User Name</label>
@@ -252,29 +252,28 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
-    <script type="text/javascript">
+    <script type="text/javascript"></script>
+    <script>
+        document.getElementById('imgFile').onchange = function(evt) {
+            var tgt = evt.target || window.event.srcElement,
+                files = tgt.files;
 
-document.getElementById('imgFile').onchange = function (evt) {
-    var tgt = evt.target || window.event.srcElement,
-        files = tgt.files;
+            // FileReader support
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function() {
+                    document.getElementById('imgId').src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
 
-    // FileReader support
-    if (FileReader && files && files.length) {
-        var fr = new FileReader();
-        fr.onload = function () {
-            document.getElementById('imgId').src = fr.result;
+            // Not supported
+            else {
+                // fallback -- perhaps submit the input to an iframe and temporarily store
+                // them on the server until the user's session ends.
+            }
         }
-        fr.readAsDataURL(files[0]);
-    }
-
-    // Not supported
-    else {
-        // fallback -- perhaps submit the input to an iframe and temporarily store
-        // them on the server until the user's session ends.
-    }
-}
-
-</script>
+    </script>
 
 </body>
 

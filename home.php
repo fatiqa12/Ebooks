@@ -1,6 +1,10 @@
 <?php
 session_start();
-if (isset($_SESSION['sessionEmail'])) {
+if (isset($_SESSION['sessionEmail'])) 
+{
+}
+else{
+    header("Location:login.php");
 }
 ?>
 <!DOCTYPE html>

@@ -1,9 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['sessionEmail'])) {
-
 } else {
-
 }
 
 ?>
@@ -38,7 +36,7 @@ if (isset($_SESSION['sessionEmail'])) {
 		<div class="top-content">
 			<div class="container-fluid">
 				<div class="row">
-					<div class="col-md-8">
+					<div class="col-md-11">
 						<div class="social-links">
 							<ul>
 								<li>
@@ -56,14 +54,29 @@ if (isset($_SESSION['sessionEmail'])) {
 							</ul>
 						</div><!--social-links-->
 					</div>
+					<div class="col-md-1">
+						<div class="product-item row align-items-end">
+
+								<?php
+								$count = 0;
+								if (isset($_SESSION['cart'])) {
+									$count = count($_SESSION['cart']);
+								}
+								?>
+								<figure class="product-style">
+									<a href="./mycart.php" class="cart for-buy"><i class="icon icon-clipboard"></i><span>My Cart (<?php echo $count; ?>)</span></a>
+								</figure>
+						</div>
+					</div>
 
 					<?php
-						if (isset($_SESSION['sessionEmail'])) {
-							include "indexheader.php";
-						} else {
-
-						}
+					if (isset($_SESSION['sessionEmail'])) {
+						include "indexheader.php";
+					} else {
+					}
 					?>
+
+
 
 				</div>
 			</div>
@@ -71,7 +84,7 @@ if (isset($_SESSION['sessionEmail'])) {
 
 		<header id="header">
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row mx-0 px-0">
 
 					<div class="col-md-2">
 						<div class="main-logo">
@@ -84,38 +97,37 @@ if (isset($_SESSION['sessionEmail'])) {
 
 						<nav id="navbar">
 							<div class="main-menu stellarnav">
+
+
 								<ul class="menu-list">
 									<li class="menu-item active"><a href="#home">Home</a></li>
-									<li class="menu-item has-sub">
-
-										<ul>
-											<li class="active"><a href="index.html">Home</a></li>
-											<li><a href="about.html">About <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="styles.html">Styles <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="blog.html">Blog <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="single-post.html">Post Single <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="shop.html">Our Store <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="single-product.html">Product Single <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="contact.html">Contact <span class="badge bg-dark">PRO</span></a></li>
-											<li><a href="thank-you.html">Thank You <span class="badge bg-dark">PRO</span></a></li>
-										</ul>
+									<ul>
+										<li class="active"><a href="index.html">Home</a></li>
+										<li><a href="about.html">About <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="styles.html">Styles <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="blog.html">Blog <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="single-post.html">Post Single <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="shop.html">Our Store <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="single-product.html">Product Single <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="contact.html">Contact <span class="badge bg-dark">PRO</span></a></li>
+										<li><a href="thank-you.html">Thank You <span class="badge bg-dark">PRO</span></a></li>
+									</ul>
 
 									</li>
 									<li class="menu-item"><a href="#featured-books" class="nav-link">Novels</a></li>
 									<li class="menu-item"><a href="#popular-books" class="nav-link">Comics</a></li>
 									<li class="menu-item"><a href="#special-offer" class="nav-link">Stories</a></li>
 									<li class="menu-item"><a href="#latest-blog" class="nav-link">General Knowledge</a></li>
-									<?php 
-										if (isset($_SESSION['sessionEmail'])) {
-
-										}
-										else {
-											echo "<li><a style='width: 100px; background-color: red' href='./login.php' class='btn btn-danger'>Login</a></li>";
-											echo "<li><a style='width: 100px; background-color: red' href='./home.php' class='btn btn-danger'>Admin Login</a></li>";
-										}
+									<?php
+									if (isset($_SESSION['sessionEmail'])) {
+											
+									} else {
+										echo "<li><a style='width: 75px; background-color: red;font-size:10px;font-weight:bold;color:white;' href='./login.php' class='btn btn-danger'>Login</a></li>";
+										echo "<li><a style='width: 120px; background-color: lightgreen; margin-left: 5px;font-size:10px;font-weight:bold;text-align:center' href='./home.php' class='btn btn-danger'>Admin Login</a></li>";
+									}
 									?>
-									
-									
+
+
 								</ul>
 
 								<div class="hamburger">
